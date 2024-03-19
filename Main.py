@@ -8,7 +8,6 @@ def generate():
     win = Tk()
     win.geometry('2000x1000')
     def onClick():
-        # praj start
         def send_sms():
             account_sid = side.get()
             auth_token = toke.get()
@@ -29,10 +28,6 @@ def generate():
                 dispLabel=Label(win, text=disptext)
                 dispLabel.place(x=1000, y=600)
                 win.after(5000, dispLabel.destroy)
-        # praj end
-        
-        
-        
         user_input = (inp.get())    
         if user_input:  
             user_input=int(user_input)  
@@ -48,7 +43,6 @@ def generate():
                 password_list = list(password)
                 random.shuffle(password_list)
                 shuffled_password = ''.join(password_list)
-                # praj end
                 ww=Text(win, height=2, borderwidth=0)
                 ww.insert(1.0,shuffled_password)
                 ww.place(x=500, y=200)
@@ -65,24 +59,14 @@ def generate():
                 phe=Entry(win)
                 phe.place(x=1200, y=505)
                 Button(win,text="Send password as sms", command=send_sms).place(x=50, y=550)
-                
-            
-
-
-
-
-
     spacel=Label(win,text='',font=('Arial, 60')).grid()
     n = Label(win, text='Length of password required:',font=('Arial, 30'),fg='BLack',bg='Yellow').place(x=100, y=100)
     inp = Entry(win,width=50,font=('Arial,30'))
     inp.place(x=650, y=115)
     cl = Button(win, text='Generate', command=onClick,font=('Arial', 18))
     cl.grid(padx=100, pady=100)
-        
-
-
-
-def stren():
+    
+    def stren():
     win = Tk()
     win.geometry('600x500')
     Label(win, text='Enter the password:', font = ('Arial',20)).place(x=50, y=50)
@@ -92,8 +76,7 @@ def stren():
     rating.place(x=100,y=200)
 
     def clickstrength():
-        s = inp.get()  
-        # abbas start      
+        s = inp.get()       
         upper_case = any([1 if c in string.ascii_uppercase else 0 for c in s])
         lower_case = any([1 if c in string.ascii_uppercase else 0 for c in s])
         special = any([1 if c in string.punctuation else 0 for c in s])
@@ -129,7 +112,6 @@ def stren():
         elif score >= 6:
             com=(f'The password is strong! Score: {str(score)} /7')
         dispScore+=com
-        # abbas end
         rating.config(text=dispScore)
 
     b = Button(win, text='Check', command=clickstrength)
